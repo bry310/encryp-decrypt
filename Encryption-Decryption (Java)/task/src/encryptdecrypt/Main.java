@@ -3,10 +3,10 @@ package encryptdecrypt;
 
 //abcdefghijklmnopqrstuvwxyz
 
-class DomeEncrypter implements Encryptor {
+class DomeCypher implements Cypher {
 
     private int key;
-    DomeEncrypter(int key){
+    DomeCypher(int key){
         this.key = key;
     }
 
@@ -45,25 +45,23 @@ class DomeEncrypter implements Encryptor {
 }
 
 public class Main {
-
-
-
-
-
     public static void main(String[] args) {
 
-        //Prompt.display();
-        String todo = Reader.readString();
-        String msg = Reader.readString();
-        //Prompt.display();
-        int key = Reader.readInt();
-        Encryptor encryptor = new DomeEncrypter(key);
-        String encryptedMsg = todo.equals("enc") ?
-                encryptor.encrypt(msg) : encryptor.decrypt(msg);
-        Writer.write(encryptedMsg);
+        CLArgs clArgs = new CLArgs(args);
 
+        int key = clArgs.getKey();
+        String mode = clArgs.getMode();
+        String data = clArgs.getData();
+
+        Cypher cypher = new DomeCypher(key);
+        Mapper cypherMapper = mode.equals("enc") ?
+                new CypherMapper(cypher, CypherMapper.ENCRYPT) :
+                new CypherMapper(cypher, CypherMapper.DECRYPT);
+
+        Input input = new InputString(data);
+        Output output = new TerminalIO();
+        cypherMapper.map(input,output);
 
     }
-
 
 }
