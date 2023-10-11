@@ -2,8 +2,8 @@
 
 # Table of Contents
 [Introduction](#introduction)
-1. [Stage 1/6: Encrypted!](#stage-16-encrypted)
-2. [Stage 4/6: I command you](#stage-46-i-command-you)
+1. [Stage 1/6: Encrypted!](#stage-1)
+2. [Stage 4/6: I command you](#stage-4)
 
 
 ## Introduction <a name="introduction"></a>
@@ -12,7 +12,7 @@ Privacy is an important matter is the realm of the Internet. When sending a mess
 
 
 
-## Stage 1/6: Encrypted! <div id="stage-1"></div>
+## Stage 1/6: Encrypted! <a name="stage-1"></a>
 * ## `Description`
     Today, encryption and decryption algorithms are everywhere to protect our data. They are vital for sites that handle sensitive data, such as e-commerce sites that accept online card payments and login areas that require users to enter their credentials. Complex encryption algorithms are behind the scenes to ensure the security of data.
 
@@ -28,4 +28,4 @@ Privacy is an important matter is the realm of the Internet. When sending a mess
     The output should look like ## ##### # ########! where # is a lower-case English letter.
 
 
-## Stage 4/6: I command you <a name="stage-2"></a>
+## Stage 4/6: I command you <a name="stage-4"></a>
