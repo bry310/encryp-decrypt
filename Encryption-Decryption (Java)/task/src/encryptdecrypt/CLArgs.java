@@ -6,16 +6,11 @@ public class CLArgs  {
     private String mode = "enc";
     private String out = null;
     private String in = null;
+    private String alg = "shift";
 
     public CLArgs(String[] args)  {
-        // if each flag has a value then the numbers of args would be
-        // even
 
-//        if ( args.length % 2 != 0){
-//            throw new JustException("Error");
-//        }
         int i = 0;
-        // Each flag would be at 0,2,4 or some even index position
         while( i < args.length ){
             String flag = args[i];
 
@@ -34,12 +29,13 @@ public class CLArgs  {
                 }else if ("-out".equals(flag)) {
                     this.out = args[i + 1];
                     i = i + 2;
-                } else {
+                } else if ("-alg".equals(flag)){
+                    this.alg = args[i + 1];
+                    i = i + 2;
+                }
+                else {
                     throw new JustException("Error");
                 }
-
-
-
         }
     }
 
@@ -61,5 +57,9 @@ public class CLArgs  {
 
     public String getOut() {
         return out;
+    }
+
+    public String getAlg() {
+        return alg;
     }
 }

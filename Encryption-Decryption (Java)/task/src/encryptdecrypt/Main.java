@@ -29,16 +29,22 @@ class DomeCypher implements Cypher {
     }
 
     private char encryptChar(char c){
+        if ( ! Character.isLetter(c)) {
+            return (char)c;
+        }
         int a = 'a';
         int from_a = c - 'a';
-        int new_from_a = (from_a + key) ;
+        int new_from_a = (from_a + key) % 26;
         return (char)(a + new_from_a);
     }
 
     private char decryptChar(char c){
+        if ( ! Character.isLetter(c)) {
+            return (char)c;
+        }
         int a = 'a';
         int from_a = c - 'a';
-        int new_from_a = (from_a - key) ;
+        int new_from_a = (from_a - key) % 26;
         return (char)(a + new_from_a);
     }
 
@@ -56,17 +62,15 @@ public class Main {
 
             int key = clArgs.getKey();
             String mode = clArgs.getMode();
+            String alg = clArgs.getAlg();
 
-            //String data = clArgs.getData();
+
             Input input;
             if (clArgs.getData() != null) {
                 input = new StringInput(clArgs.getData());
             } else if (clArgs.getIn() != null) {
 
-
                 input = new FileIO(clArgs.getIn());
-
-
             } else {
                 input = new StringInput("");
             }
@@ -78,16 +82,14 @@ public class Main {
                 output = new TerminalIO();
             }
 
-//            key = 5;
-//            input  = new FileIO("/tmp/infile.txt");
-//            output = new TerminalIO();
 
+            Cypher cypher = alg.equals("shift") ?
+                    new ShiftCypher(key) :
+                    new UnicodeCypher(key);
 
-            Cypher cypher = new DomeCypher(key);
             Mapper cypherMapper = mode.equals("enc") ?
                     new CypherMapper(cypher, CypherMapper.ENCRYPT) :
                     new CypherMapper(cypher, CypherMapper.DECRYPT);
-
 
             cypherMapper.map(input, output);
 
