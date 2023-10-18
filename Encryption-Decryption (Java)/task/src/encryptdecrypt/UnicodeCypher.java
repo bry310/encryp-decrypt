@@ -13,11 +13,11 @@ public class UnicodeCypher implements Cypher{
      */
     @Override
     public String encrypt(String msg) {
-        String emsg = "";
+        StringBuilder sb = new StringBuilder();
         for(char c : msg.toCharArray()){
-            emsg = emsg + encryptChar(c);
+            sb.append(encryptChar(c));
         }
-        return emsg;
+        return sb.toString();
     }
 
     /**
@@ -26,24 +26,24 @@ public class UnicodeCypher implements Cypher{
      */
     @Override
     public String decrypt(String code) {
-        String msg = "";
+        StringBuilder sb = new StringBuilder();
         for(char c : code.toCharArray()){
-            msg = msg + decryptChar(c);
+            sb.append(decryptChar(c));
         }
-        return msg;
+        return sb.toString();
     }
 
     private char encryptChar(char c){
         int a = 'a';
-        int from_a = c - 'a';
-        int new_from_a = (from_a + key) ;
-        return (char)(a + new_from_a);
+        int fromA = c - 'a';
+        int newFromA = (fromA + key) ;
+        return (char)(a + newFromA);
     }
 
     private char decryptChar(char c){
         int a = 'a';
-        int from_a = c - 'a';
-        int new_from_a = (from_a - key) ;
-        return (char)(a + new_from_a);
+        int fromA = c - 'a';
+        int newFromA = (fromA - key) ;
+        return (char)(a + newFromA);
     }
 }

@@ -13,11 +13,11 @@ public class ShiftCypher implements Cypher{
      */
     @Override
     public String encrypt(String msg) {
-        String emsg = "";
+        StringBuilder sb = new StringBuilder();
         for(char c : msg.toCharArray()){
-            emsg = emsg + encryptChar(c);
+            sb.append(encryptChar(c));
         }
-        return emsg;
+        return sb.toString();
     }
 
     /**
@@ -26,11 +26,11 @@ public class ShiftCypher implements Cypher{
      */
     @Override
     public String decrypt(String code) {
-        String msg = "";
+        StringBuilder sb = new StringBuilder();
         for(char c : code.toCharArray()){
-            msg = msg + decryptChar(c);
+            sb.append(decryptChar(c));
         }
-        return msg;
+        return sb.toString();
     }
 
     private char encryptChar(char c){

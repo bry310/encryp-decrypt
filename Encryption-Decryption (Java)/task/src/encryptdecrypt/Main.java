@@ -1,60 +1,7 @@
 package encryptdecrypt;
 
-
-//abcdefghijklmnopqrstuvwxyz
-
-class DomeCypher implements Cypher {
-
-    private int key;
-    DomeCypher(int key){
-        this.key = key;
-    }
-
-    @Override
-    public  String encrypt(String msg) {
-        String emsg = "";
-        for(char c : msg.toCharArray()){
-            emsg = emsg + encryptChar(c);
-        }
-        return emsg;
-    }
-
-    @Override
-    public String decrypt(String code){
-        String msg = "";
-        for(char c : code.toCharArray()){
-            msg = msg + decryptChar(c);
-        }
-        return msg;
-    }
-
-    private char encryptChar(char c){
-        if ( ! Character.isLetter(c)) {
-            return (char)c;
-        }
-        int a = 'a';
-        int from_a = c - 'a';
-        int new_from_a = (from_a + key) % 26;
-        return (char)(a + new_from_a);
-    }
-
-    private char decryptChar(char c){
-        if ( ! Character.isLetter(c)) {
-            return (char)c;
-        }
-        int a = 'a';
-        int from_a = c - 'a';
-        int new_from_a = (from_a - key) % 26;
-        return (char)(a + new_from_a);
-    }
-
-}
-
-
 public class Main {
     public static void main(String[] args) {
-
-
 
         try {
 
@@ -63,7 +10,6 @@ public class Main {
             int key = clArgs.getKey();
             String mode = clArgs.getMode();
             String alg = clArgs.getAlg();
-
 
             Input input;
             if (clArgs.getData() != null) {

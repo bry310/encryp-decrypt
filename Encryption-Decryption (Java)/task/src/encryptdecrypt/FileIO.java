@@ -2,12 +2,10 @@ package encryptdecrypt;
 
 import java.io.File;
 import java.io.FileWriter;
-import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Scanner;
 
 public class FileIO implements IO {
 
@@ -21,8 +19,8 @@ public class FileIO implements IO {
     public String getInput() {
         try   {
             Path path = Paths.get(fileName);
-            String content = Files.readString(path);
-            return content;
+             return Files.readString(path);
+
         } catch (IOException ioException) {
             throw new JustException("Error: reading file", ioException);
         }
