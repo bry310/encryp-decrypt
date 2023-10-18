@@ -1,8 +1,8 @@
 package encryptdecrypt;
 
-public class InputString implements Input {
+public class StringInput implements Input {
     private String string;
-    public InputString(String string){
+    public StringInput(String string){
         this.string = string;
     }
 

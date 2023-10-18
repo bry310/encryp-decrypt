@@ -1,9 +1,12 @@
 package encryptdecrypt;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Scanner;
 
 public class FileIO implements IO {
@@ -16,25 +19,22 @@ public class FileIO implements IO {
 
     @Override
     public String getInput() {
-        try (Scanner in = new Scanner(new FileReader("filename.txt"));) {
-            StringBuilder sb = new StringBuilder();
-            while(in.hasNext()) {
-                sb.append(in.next());
-            }
-            in.close();
-            return sb.toString();
+        try   {
+            Path path = Paths.get(fileName);
+            String content = Files.readString(path);
+            return content;
         } catch (IOException ioException) {
-            throw new JustException("", ioException);
+            throw new JustException("Error: reading file", ioException);
         }
 
     }
 
     @Override
     public void print(String string) {
-        try (FileWriter fileWriter = new FileWriter(fileName);) {
+        try (FileWriter fileWriter = new FileWriter( new File(fileName));) {
             fileWriter.write(string);
         } catch (IOException ioException) {
-            throw new JustException("", ioException);
+            throw new JustException("Error: writing to file", ioException);
         }
 
     }

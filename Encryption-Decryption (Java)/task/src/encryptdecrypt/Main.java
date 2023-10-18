@@ -44,23 +44,56 @@ class DomeCypher implements Cypher {
 
 }
 
+
 public class Main {
     public static void main(String[] args) {
 
-        CLArgs clArgs = new CLArgs(args);
 
-        int key = clArgs.getKey();
-        String mode = clArgs.getMode();
-        String data = clArgs.getData();
 
-        Cypher cypher = new DomeCypher(key);
-        Mapper cypherMapper = mode.equals("enc") ?
-                new CypherMapper(cypher, CypherMapper.ENCRYPT) :
-                new CypherMapper(cypher, CypherMapper.DECRYPT);
+        try {
 
-        Input input = new InputString(data);
-        Output output = new TerminalIO();
-        cypherMapper.map(input,output);
+            CLArgs clArgs = new CLArgs(args);
+
+            int key = clArgs.getKey();
+            String mode = clArgs.getMode();
+
+            //String data = clArgs.getData();
+            Input input;
+            if (clArgs.getData() != null) {
+                input = new StringInput(clArgs.getData());
+            } else if (clArgs.getIn() != null) {
+
+
+                input = new FileIO(clArgs.getIn());
+
+
+            } else {
+                input = new StringInput("");
+            }
+
+            Output output;
+            if (clArgs.getOut() != null) {
+                output = new FileIO(clArgs.getOut());
+            } else {
+                output = new TerminalIO();
+            }
+
+//            key = 5;
+//            input  = new FileIO("/tmp/infile.txt");
+//            output = new TerminalIO();
+
+
+            Cypher cypher = new DomeCypher(key);
+            Mapper cypherMapper = mode.equals("enc") ?
+                    new CypherMapper(cypher, CypherMapper.ENCRYPT) :
+                    new CypherMapper(cypher, CypherMapper.DECRYPT);
+
+
+            cypherMapper.map(input, output);
+
+        } catch (Exception e){
+            System.out.print("Error");
+        }
 
     }
 
