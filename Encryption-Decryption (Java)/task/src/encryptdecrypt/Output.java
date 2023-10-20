@@ -2,6 +2,6 @@ package encryptdecrypt;
 
 public interface Output {
 
-    void print(String string);
+    void write(String string);
 
 }

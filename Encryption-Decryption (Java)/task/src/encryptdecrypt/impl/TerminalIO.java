@@ -1,20 +1,24 @@
-package encryptdecrypt;
+package encryptdecrypt.impl;
+
+import encryptdecrypt.IO;
 
 import java.util.Scanner;
 
-public class TerminalIO implements IO {
+class TerminalIO implements IO {
 
     Scanner scanner;
-    public TerminalIO(){
+
+    public TerminalIO() {
         scanner = new Scanner(System.in);
     }
+
     @Override
-    public String getInput() {
+    public String read() {
         return scanner.nextLine();
     }
 
     @Override
-    public void print(String string) {
+    public void write(String string) {
         System.out.print(string);
 
     }

@@ -1,45 +1,23 @@
 package encryptdecrypt;
 
+import encryptdecrypt.impl.CLArgs;
+import encryptdecrypt.impl.Configuration;
+
 public class Main {
     public static void main(String[] args) {
 
         try {
 
             CLArgs clArgs = new CLArgs(args);
+            Configuration conf = new Configuration(clArgs);
 
-            int key = clArgs.getKey();
-            String mode = clArgs.getMode();
-            String alg = clArgs.getAlg();
+            Input input = conf.getInput();
+            Output output = conf.getOutput();
+            Mapper mapper = conf.getMapper();
 
-            Input input;
-            if (clArgs.getData() != null) {
-                input = new StringInput(clArgs.getData());
-            } else if (clArgs.getIn() != null) {
+            mapper.map(input, output);
 
-                input = new FileIO(clArgs.getIn());
-            } else {
-                input = new StringInput("");
-            }
-
-            Output output;
-            if (clArgs.getOut() != null) {
-                output = new FileIO(clArgs.getOut());
-            } else {
-                output = new TerminalIO();
-            }
-
-
-            Cypher cypher = alg.equals("shift") ?
-                    new ShiftCypher(key) :
-                    new UnicodeCypher(key);
-
-            Mapper cypherMapper = mode.equals("enc") ?
-                    new CypherMapper(cypher, CypherMapper.ENCRYPT) :
-                    new CypherMapper(cypher, CypherMapper.DECRYPT);
-
-            cypherMapper.map(input, output);
-
-        } catch (Exception e){
+        } catch (Exception e) {
             System.out.print("Error");
         }
 

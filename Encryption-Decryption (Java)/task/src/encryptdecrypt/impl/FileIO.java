@@ -1,4 +1,6 @@
-package encryptdecrypt;
+package encryptdecrypt.impl;
+
+import encryptdecrypt.IO;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -7,7 +9,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-public class FileIO implements IO {
+class FileIO implements IO {
 
     private final String fileName;
 
@@ -16,10 +18,10 @@ public class FileIO implements IO {
     }
 
     @Override
-    public String getInput() {
-        try   {
+    public String read() {
+        try {
             Path path = Paths.get(fileName);
-             return Files.readString(path);
+            return Files.readString(path);
 
         } catch (IOException ioException) {
             throw new JustException("Error: reading file", ioException);
@@ -28,8 +30,8 @@ public class FileIO implements IO {
     }
 
     @Override
-    public void print(String string) {
-        try (FileWriter fileWriter = new FileWriter( new File(fileName));) {
+    public void write(String string) {
+        try (FileWriter fileWriter = new FileWriter(new File(fileName))) {
             fileWriter.write(string);
         } catch (IOException ioException) {
             throw new JustException("Error: writing to file", ioException);

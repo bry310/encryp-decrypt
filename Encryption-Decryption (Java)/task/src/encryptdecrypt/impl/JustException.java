@@ -1,4 +1,4 @@
-package encryptdecrypt;
+package encryptdecrypt.impl;
 
 public class JustException extends RuntimeException {
 

@@ -2,6 +2,6 @@ package encryptdecrypt;
 
 public interface Input {
 
-    String getInput();
+    String read();
 
 }
