@@ -13,28 +13,41 @@ public class Configuration {
 
     public Configuration(CLArgs clArgs) {
 
-        // make input
-        if (clArgs.getData() != null) {
-            input = new StringInput(clArgs.getData());
-        } else if (clArgs.getIn() != null) {
-
-            input = new FileIO(clArgs.getIn());
-        } else {
-            input = new StringInput("");
-        }
-
-        // make output
-        if (clArgs.getOut() != null) {
-            output = new FileIO(clArgs.getOut());
-        } else {
-            output = new TerminalIO();
-        }
-
+        Input in = makeInput(clArgs);
+        Output out = makeOutput(clArgs);
 
         Cypher cypher = CypherFactory.create(clArgs.getAlg(), clArgs.getKey(), clArgs.getMode());
 
-        mapper = new CypherMapper(cypher);
+        if ("dec".equals(clArgs.getMode())) {
+            this.input = new DecryptReader(in, cypher);
+            this.output = out;
+        } else {
+            this.input = in;
+            this.output = new EncryptWriter(out, cypher);
+        }
 
+        mapper = new PlainMapper();
+    }
+
+    private Input makeInput(CLArgs clArgs) {
+        // make input
+        if (clArgs.getData() != null) {
+            return new StringInput(clArgs.getData());
+        } else if (clArgs.getIn() != null) {
+
+            return new FileIO(clArgs.getIn());
+        } else {
+            return new StringInput("");
+        }
+    }
+
+    private Output makeOutput(CLArgs clArgs) {
+        // make output
+        if (clArgs.getOut() != null) {
+            return new FileIO(clArgs.getOut());
+        } else {
+            return new TerminalIO();
+        }
     }
 
     public Input getInput() {
