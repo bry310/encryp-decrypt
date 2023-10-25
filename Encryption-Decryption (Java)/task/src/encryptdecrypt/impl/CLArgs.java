@@ -1,5 +1,7 @@
 package encryptdecrypt.impl;
 
+import encryptdecrypt.io.impl.JustException;
+
 public class CLArgs {
     private int key = 0;
     private String data = null;

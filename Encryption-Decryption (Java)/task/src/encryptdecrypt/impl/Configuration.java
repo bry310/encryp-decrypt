@@ -1,18 +1,18 @@
 package encryptdecrypt.impl;
 
-import encryptdecrypt.Cypher;
-import encryptdecrypt.Input;
-import encryptdecrypt.Mapper;
-import encryptdecrypt.Output;
+import encryptdecrypt.cypher.Cypher;
+import encryptdecrypt.cypher.impl.CypherFactory;
+import encryptdecrypt.io.Input;
+import encryptdecrypt.io.Output;
+import encryptdecrypt.io.impl.*;
 
 public class Configuration {
 
     private final Input input;
     private final Output output;
-    private final Mapper mapper;
 
-    public Configuration(CLArgs clArgs) {
-
+    public Configuration(String[] args) {
+        CLArgs clArgs = new CLArgs(args);
         Input in = makeInput(clArgs);
         Output out = makeOutput(clArgs);
 
@@ -26,7 +26,6 @@ public class Configuration {
             this.output = new EncryptWriter(out, cypher);
         }
 
-        mapper = new PlainMapper();
     }
 
     private Input makeInput(CLArgs clArgs) {
@@ -56,9 +55,5 @@ public class Configuration {
 
     public Output getOutput() {
         return output;
-    }
-
-    public Mapper getMapper() {
-        return mapper;
     }
 }

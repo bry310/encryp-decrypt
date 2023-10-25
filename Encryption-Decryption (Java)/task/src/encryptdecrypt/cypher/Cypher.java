@@ -1,4 +1,4 @@
-package encryptdecrypt;
+package encryptdecrypt.cypher;
 
 @FunctionalInterface
 public interface Cypher {

@@ -1,6 +1,6 @@
-package encryptdecrypt.impl;
+package encryptdecrypt.cypher.impl;
 
-import encryptdecrypt.Cypher;
+import encryptdecrypt.cypher.Cypher;
 
 import java.util.function.UnaryOperator;
 import java.util.stream.Collectors;

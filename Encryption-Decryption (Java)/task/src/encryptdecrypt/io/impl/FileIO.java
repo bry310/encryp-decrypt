@@ -1,6 +1,6 @@
-package encryptdecrypt.impl;
+package encryptdecrypt.io.impl;
 
-import encryptdecrypt.IO;
+import encryptdecrypt.io.IO;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -9,7 +9,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-class FileIO implements IO {
+public class FileIO implements IO {
 
     private final String fileName;
 

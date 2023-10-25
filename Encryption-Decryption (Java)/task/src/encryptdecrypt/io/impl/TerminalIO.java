@@ -1,10 +1,10 @@
-package encryptdecrypt.impl;
+package encryptdecrypt.io.impl;
 
-import encryptdecrypt.IO;
+import encryptdecrypt.io.IO;
 
 import java.util.Scanner;
 
-class TerminalIO implements IO {
+public class TerminalIO implements IO {
 
     Scanner scanner;
 

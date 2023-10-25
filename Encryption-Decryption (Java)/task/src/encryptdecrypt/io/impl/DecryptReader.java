@@ -1,14 +1,14 @@
-package encryptdecrypt.impl;
+package encryptdecrypt.io.impl;
 
-import encryptdecrypt.Cypher;
-import encryptdecrypt.Input;
+import encryptdecrypt.cypher.Cypher;
+import encryptdecrypt.io.Input;
 
-class DecryptReader implements Input {
+public class DecryptReader implements Input {
 
     private final Input source;
     private final Cypher decrypter;
 
-    DecryptReader(Input source, Cypher decryptor) {
+    public DecryptReader(Input source, Cypher decryptor) {
         this.source = source;
         this.decrypter = decryptor;
     }

@@ -1,13 +1,13 @@
-package encryptdecrypt.impl;
+package encryptdecrypt.io.impl;
 
-import encryptdecrypt.Cypher;
-import encryptdecrypt.Output;
+import encryptdecrypt.cypher.Cypher;
+import encryptdecrypt.io.Output;
 
-class EncryptWriter implements Output {
+public class EncryptWriter implements Output {
     private final Output target;
     private final Cypher encryptor;
 
-    EncryptWriter(Output output, Cypher encryptor) {
+    public EncryptWriter(Output output, Cypher encryptor) {
         this.target = output;
         this.encryptor = encryptor;
     }

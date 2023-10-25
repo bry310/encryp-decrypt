@@ -1,8 +1,8 @@
-package encryptdecrypt.impl;
+package encryptdecrypt.io.impl;
 
-import encryptdecrypt.Input;
+import encryptdecrypt.io.Input;
 
-class StringInput implements Input {
+public class StringInput implements Input {
     private final String string;
 
     public StringInput(String string) {
@@ -13,4 +13,5 @@ class StringInput implements Input {
     public String read() {
         return string;
     }
+
 }

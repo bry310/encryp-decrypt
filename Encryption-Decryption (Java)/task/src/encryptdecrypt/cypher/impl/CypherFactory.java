@@ -1,6 +1,6 @@
-package encryptdecrypt.impl;
+package encryptdecrypt.cypher.impl;
 
-import encryptdecrypt.Cypher;
+import encryptdecrypt.cypher.Cypher;
 
 public class CypherFactory {
     private CypherFactory() {
