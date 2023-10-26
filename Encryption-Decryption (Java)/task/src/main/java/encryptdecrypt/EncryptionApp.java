@@ -4,12 +4,12 @@ import encryptdecrypt.impl.Configuration;
 import encryptdecrypt.io.Input;
 import encryptdecrypt.io.Output;
 
-public class App implements Runnable {
+public class EncryptionApp implements Runnable {
 
     Input input;
     Output output;
 
-    public App(Configuration configuration) {
+    public EncryptionApp(Configuration configuration) {
         this.input = configuration.getInput();
         this.output = configuration.getOutput();
     }
