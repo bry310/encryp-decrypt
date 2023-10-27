@@ -18,3 +18,8 @@ gradlew.bat
 settings.gradle
 
 /Encryption-Decryption (Java)/task/output.txt
+
+# Maven Wrapper
+!/Encryption-Decryption (Java)/task/.mvn/wrapper/maven-wrapper.jar
+/Encryption-Decryption (Java)/task/encryption-app.iml
+/Encryption-Decryption (Java)/task/target/
