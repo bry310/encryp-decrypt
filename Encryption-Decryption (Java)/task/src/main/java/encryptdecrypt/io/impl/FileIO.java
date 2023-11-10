@@ -26,7 +26,6 @@ public class FileIO implements IO {
         } catch (IOException ioException) {
             throw new JustException("Error: reading file", ioException);
         }
-
     }
 
     @Override
@@ -36,7 +35,5 @@ public class FileIO implements IO {
         } catch (IOException ioException) {
             throw new JustException("Error: writing to file", ioException);
         }
-
     }
-
 }

@@ -4,7 +4,6 @@ import encryptdecrypt.io.IO;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.util.Scanner;
 
 public class TerminalIO implements IO {
 
@@ -18,7 +17,7 @@ public class TerminalIO implements IO {
     public String read() {
         try {
             return bufferedReader.readLine();
-        } catch (IOException e){
+        } catch (IOException e) {
             throw new JustException("error");
         }
     }

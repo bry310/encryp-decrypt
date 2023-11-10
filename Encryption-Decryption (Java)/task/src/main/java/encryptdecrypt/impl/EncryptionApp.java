@@ -8,7 +8,7 @@ public class EncryptionApp implements Runnable {
     Input input;
     Output output;
 
-    public EncryptionApp(String args[]) {
+    public EncryptionApp(String[] args) {
         var configuration = new Configuration(args);
         this.input = configuration.getInput();
         this.output = configuration.getOutput();
