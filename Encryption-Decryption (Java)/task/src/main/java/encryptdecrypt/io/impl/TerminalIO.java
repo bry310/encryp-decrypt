@@ -2,19 +2,25 @@ package encryptdecrypt.io.impl;
 
 import encryptdecrypt.io.IO;
 
+import java.io.BufferedReader;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class TerminalIO implements IO {
 
-    Scanner scanner;
+    private final BufferedReader bufferedReader;
 
     public TerminalIO() {
-        scanner = new Scanner(System.in);
+        bufferedReader = new BufferedReader(System.console().reader());
     }
 
     @Override
     public String read() {
-        return scanner.nextLine();
+        try {
+            return bufferedReader.readLine();
+        } catch (IOException e){
+            throw new JustException("error");
+        }
     }
 
     @Override

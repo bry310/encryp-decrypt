@@ -2,7 +2,7 @@ package encryptdecrypt.impl;
 
 import encryptdecrypt.io.impl.JustException;
 
-public class CLArgs {
+ class CLArgs {
     private int key = 0;
     private String data = null;
     private String mode = "enc";

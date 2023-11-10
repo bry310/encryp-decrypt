@@ -6,7 +6,7 @@ import encryptdecrypt.io.Input;
 import encryptdecrypt.io.Output;
 import encryptdecrypt.io.impl.*;
 
-public class Configuration {
+class Configuration {
 
     private final Input input;
     private final Output output;
