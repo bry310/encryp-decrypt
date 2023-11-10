@@ -30,11 +30,11 @@ class Configuration {
 
     private Input makeInput(CLArgs clArgs) {
         // make input
-        if (clArgs.getData() != null) {
-            return new StringInput(clArgs.getData());
-        } else if (clArgs.getIn() != null) {
+        if (clArgs.getData().isPresent()) {
+            return new StringInput(clArgs.getData().get());
+        } else if (clArgs.getIn().isPresent()) {
 
-            return new FileIO(clArgs.getIn());
+            return new FileIO(clArgs.getIn().get());
         } else {
             return new StringInput("");
         }
@@ -42,8 +42,8 @@ class Configuration {
 
     private Output makeOutput(CLArgs clArgs) {
         // make output
-        if (clArgs.getOut() != null) {
-            return new FileIO(clArgs.getOut());
+        if (clArgs.getOut().isPresent()) {
+            return new FileIO(clArgs.getOut().get());
         } else {
             return new TerminalIO();
         }

@@ -2,6 +2,8 @@ package encryptdecrypt.impl;
 
 import encryptdecrypt.io.impl.JustException;
 
+import java.util.Optional;
+
 class CLArgs {
     private int key = 0;
     private String data = null;
@@ -48,16 +50,16 @@ class CLArgs {
         return mode;
     }
 
-    public String getData() {
-        return data;
+    public Optional<String> getData() {
+        return Optional.ofNullable(data);
     }
 
-    public String getIn() {
-        return in;
+    public Optional<String> getIn() {
+        return Optional.ofNullable(in);
     }
 
-    public String getOut() {
-        return out;
+    public Optional<String> getOut() {
+        return Optional.ofNullable(out);
     }
 
     public String getAlg() {
