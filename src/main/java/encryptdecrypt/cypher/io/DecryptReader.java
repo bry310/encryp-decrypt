@@ -1,4 +1,4 @@
-package encryptdecrypt.io.impl;
+package encryptdecrypt.cypher.io;
 
 import encryptdecrypt.cypher.Cypher;
 import encryptdecrypt.io.Input;

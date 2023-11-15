@@ -13,17 +13,7 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
     </properties>
 
-    <repositories>
-        <repository>
-            <id>jitpack.io</id>
-            <url>https://jitpack.io</url>
-        </repository>
 
-        <repository>
-            <id> packages.jetbrains.team </id>
-            <url>https://packages.jetbrains.team/maven/p/academy/hyperskill-hspc</url>
-        </repository>
-    </repositories>
 
     <dependencies>
 
@@ -34,6 +24,15 @@
             <scope>test</scope>
         </dependency>
 
+
     </dependencies>
 
+    <repositories>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+
+
+    </repositories>
 </project>

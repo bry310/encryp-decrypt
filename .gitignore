@@ -25,3 +25,5 @@ settings.gradle
 /Encryption-Decryption (Java)/task/target/
 .mvn/wrapper/maven-wrapper.properties
 /encryption-app.iml
+/target/
+/output.txt

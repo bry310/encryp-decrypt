@@ -2,6 +2,8 @@ package encryptdecrypt.impl;
 
 import encryptdecrypt.cypher.Cypher;
 import encryptdecrypt.cypher.impl.CypherFactory;
+import encryptdecrypt.cypher.io.DecryptReader;
+import encryptdecrypt.cypher.io.EncryptWriter;
 import encryptdecrypt.io.Input;
 import encryptdecrypt.io.Output;
 import encryptdecrypt.io.impl.*;
